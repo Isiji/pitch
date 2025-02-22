@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Product Guidance</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Generate Product Guidance</h1>
+        <form id="guidanceForm">
+            <div class="form-group">
+                <label for="problem_statement">Problem Statement</label>
+                <input type="text" class="form-control" id="problem_statement" name="problem_statement" required>
+            </div>
+            <div class="form-group">
+                <label for="industry">Industry</label>
+                <input type="text" class="form-control" id="industry" name="industry" required>
+            </div>
+            <div class="form-group">
+                <label for="technology">Technology</label>
+                <input type="text" class="form-control" id="technology" name="technology" required>
+            </div>
+            <div class="form-group">
+                <label for="target_audience">Target Audience</label>
+                <input type="text" class="form-control" id="target_audience" name="target_audience" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="result" class="mt-5"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#guidanceForm').on('submit', function(event) {
+                event.preventDefault();
+                const formData = {
+                    problem_statement: $('#problem_statement').val(),
+                    industry: $('#industry').val(),
+                    technology: $('#technology').val(),
+                    target_audience: $('#target_audience').val()
+                };
+
+                $.ajax({
+                    url: '/generate_product_guidance',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function(response) {
+                        $('#result').html('<pre>' + JSON.stringify(response, null, 4) + '</pre>');
+                    },
+                    error: function(xhr, status, error) {
+                        $('#result').html('<div class="alert alert-danger">An error occurred: ' + xhr.responseJSON.error + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
