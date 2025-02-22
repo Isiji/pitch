@@ -1,0 +1,8 @@
+{
+    "clarify_problem": "Clarify the following problem statement based on the industry '{industry}' and technology '{technology}': {problem_statement}",
+    "check_duplicates": "Check for duplicate and similar problems to the following problem statement: {problem_statement}",
+    "assess_feasibility": "Assess the feasibility of solving the following problem statement: {problem_statement}",
+    "suggest_solutions": "Suggest possible solutions for the following problem statement: {problem_statement}",
+    "advice_feedback": "Provide advice and feedback on whether the following problem statement is well defined: {problem_statement}",
+    "recommend_tech_stack": "Recommend a tech stack to tackle the following problem statement: {problem_statement}"
+}

@@ -1,0 +1,10 @@
+output/
+env/
+venv/
+__pycache__/
+.env
+flask/output/
+flask/__pycache__/
+flask/.env
+flask/output/game/
+/
