@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Business Pitch Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Business Pitch Generator</h1>
+        <p class="intro">Transform your business idea into a compelling pitch with the power of AI. 
+            Our advanced algorithm crafts tailored, professional pitches to help you 
+            stand out in the competitive business landscape.</p>
+        
+        <div class="card">
+            <form id="pitchForm">
+                <div class="form-group">
+                    <label for="businessName">Business Name</label>
+                    <input type="text" id="businessName" name="businessName" required>
+                </div>
+                <div class="form-group">
+                    <label for="industry">Industry</label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select an industry</option>
+                        <option value="Tech">Tech</option>
+                        <option value="Health">Health</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Education">Education</option>
+                        <option value="Retail">Retail</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="problemStatement">Problem Statement</label>
+                    <textarea id="problemStatement" name="problemStatement" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="targetMarket">Target Market</label>
+                    <input type="text" id="targetMarket" name="targetMarket" required>
+                </div>
+                <div class="form-group">
+                    <label for="revenueModel">Revenue Model</label>
+                    <input type="text" id="revenueModel" name="revenueModel" required>
+                </div>
+                <div class="form-group">
+                    <label for="competitorAnalysis">Competitor Analysis (Optional)</label>
+                    <textarea id="competitorAnalysis" name="competitorAnalysis"></textarea>
+                </div>
+                <button type="submit" id="generateButton">Generate Pitch</button>
+            </form>
+        </div>
+
+        <div id="errorAlert" class="alert error" style="display: none;">
+            <strong>Error:</strong> <span id="errorMessage"></span>
+        </div>
+
+        <div id="pitchResult" class="card" style="display: none;">
+            <h2>Generated Pitch</h2>
+            <div id="pitchContent"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
